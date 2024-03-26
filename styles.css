@@ -23,21 +23,42 @@ header {
   font-size: 1.5rem;
 }
 
-#side_navbar li{
-display: flex;
-align-items: center;
-gap: 5px;
+#side_navbar li {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
-.wrapper{
-    display: flex;
+.wrapper {
+  display: flex;
 }
 
-table{
-    width:100%;
-    padding: 60px;
+.info {
+  display: flex;
+  align-items: center;
+  font-family: "Barlow", sans-serif;
 }
 
-th, td{
-    border: 1px solid black;
+.info img {
+  border-radius: 50%;
+  padding: 20px;
+}
+
+.stats {
+  display: flex;
+}
+
+.stats > p {
+  margin: 0;
+  padding-right: 10px;
+}
+
+table {
+  width: 100%;
+  padding: 60px;
+}
+
+th,
+td {
+  border: 1px solid black;
 }

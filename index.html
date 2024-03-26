@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="./styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,9 +18,25 @@
   </head>
   <body>
     <header>
-      <img src="./images/logo.png" alt="Panda logo" width="200" />
+      <img
+        id="logoButton"
+        src="./images/logo.png"
+        alt="Panda logo"
+        width="200"
+      />
       <h1 id="title">MY PLAYLIST</h1>
     </header>
+    <section class="info">
+      <img src="https://picsum.photos/150/150" />
+      <div>
+        <p>Created by Faith</p>
+        <div class="stats">
+          <p>45, 815 likes</p>
+          <p>162 songs</p>
+          <p>23h 42</p>
+        </div>
+      </div>
+    </section>
     <div class="wrapper">
       <nav>
         <ul id="side_navbar">
@@ -57,43 +73,51 @@
           </li>
         </ul>
       </nav>
-      <table cell>
+      <table>
         <tr>
+          <th></th>
           <th>Track</th>
           <th>Artist</th>
           <th>Duration</th>
         </tr>
         <tr>
-          <td>Song1</td>
+          <td><img src="./images/play.png" width="30" id="playButton" /></td>
+          <td><p id="cellOne">Song1</p></td>
           <td>Artist1</td>
           <td>Duration1</td>
         </tr>
-         <tr>
+        <tr>
+          <td><img src="./images/play.png" width="30" id="playButton" /></td>
           <td>Song2</td>
           <td>Artist2</td>
           <td>Duration2</td>
         </tr>
-         <tr>
+        <tr>
+          <td><img src="./images/play.png" width="30" id="playButton" /></td>
           <td>Song3</td>
           <td>Artist3</td>
           <td>Duration3</td>
         </tr>
-         <tr>
+        <tr>
+          <td><img src="./images/play.png" width="30" id="playButton" /></td>
           <td>Song4</td>
           <td>Artist4</td>
           <td>Duration4</td>
         </tr>
-         <tr>
+        <tr>
+          <td><img src="./images/play.png" width="30" id="playButton" /></td>
           <td>Song5</td>
           <td>Artist5</td>
           <td>Duration5</td>
         </tr>
-         <tr>
+        <tr>
+          <td><img src="./images/play.png" width="30" id="playButton" /></td>
           <td>Song6</td>
           <td>Artist6</td>
           <td>Duration6</td>
         </tr>
       </table>
     </div>
+    <script src="./script.js"></script>
   </body>
 </html>
