@@ -1,0 +1,30 @@
+body {
+  background-image: url(./images/bg.png);
+}
+
+header {
+  display: flex;
+}
+
+#title {
+  font-family: "Jura", sans-serif;
+  font-weight: 300;
+  font-size: 4.5rem;
+  margin: 0 auto;
+  padding-top: 40px;
+  color: white;
+}
+
+#side_navbar {
+  list-style: none;
+  line-height: 3rem;
+  margin-top: 2rem;
+  font-family: "Barlow", sans-serif;
+  font-size: 1.5rem;
+}
+
+#side_navbar li{
+display: flex;
+align-items: center;
+gap: 5px;
+}
