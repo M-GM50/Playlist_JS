@@ -28,3 +28,16 @@ display: flex;
 align-items: center;
 gap: 5px;
 }
+
+.wrapper{
+    display: flex;
+}
+
+table{
+    width:100%;
+    padding: 60px;
+}
+
+th, td{
+    border: 1px solid black;
+}
