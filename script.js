@@ -74,5 +74,19 @@ const allSongs = [
   },
 ];
 
-cellOne.innerText = allSongs[0].title;
-const audio = new Audio();
+displaySongs = document.querySelector("#displaySongs");
+let out = "";
+
+for (let song of allSongs) {
+  out += `
+	         <tr>
+	            <td> <img src='./images/play.png' width="30"> </td>
+	            <td>${song.title}</td>
+	            <td>${song.artist}</td>
+	            <td>${song.duration}</td>
+	          
+	         </tr>
+           `;
+}
+
+displaySongs.innerHTML = out;
