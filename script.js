@@ -1,6 +1,3 @@
-const playButton = document.getElementById("playButton");
-const cellOne = document.querySelector("#cellOne");
-
 const allSongs = [
   {
     id: 0,
@@ -77,10 +74,11 @@ const allSongs = [
 displaySongs = document.querySelector("#displaySongs");
 let out = "";
 
-for (let song of allSongs) {
+for (let i = 0; i < allSongs.length; i++) {
+  let song = allSongs[i];
   out += `
 	         <tr>
-	            <td> <img src='./images/play.png' width="30"> </td>
+	            <td> <img data-index=${i} src='./images/play.png' width="30" class="playButton"> </td>
 	            <td>${song.title}</td>
 	            <td>${song.artist}</td>
 	            <td>${song.duration}</td>
@@ -90,3 +88,17 @@ for (let song of allSongs) {
 }
 
 displaySongs.innerHTML = out;
+
+//PLAY SONGS
+const audio = new Audio();
+
+const playButton = document.querySelectorAll(".playButton");
+
+for (const button of playButton) {
+  button.addEventListener("click", () => {
+    
+    const song = allSongs[button.dataset.index];
+    audio.src = song.src;
+    audio.play();
+  });
+}
