@@ -78,7 +78,7 @@ for (let i = 0; i < allSongs.length; i++) {
   let song = allSongs[i];
   out += `
 	         <tr>
-	            <td> <img data-index=${i} src='./images/play.png' width="30" class="playButton"> </td>
+	            <td data-index=${i} class="playButton"></td>
 	            <td>${song.title}</td>
 	            <td>${song.artist}</td>
 	            <td>${song.duration}</td>
@@ -89,16 +89,37 @@ for (let i = 0; i < allSongs.length; i++) {
 
 displaySongs.innerHTML = out;
 
-//PLAY SONGS
+// UPDATE PLAYLIST INFO
+
+const songsNumber = document.querySelector("#songsNumber");
+songsNumber.innerText = `${allSongs.length} songs`;
+
+//SUM DURATION
+
+let sum = 0;
+for (let i = 0; allSongs.duration; i++) {
+  sum += allSongs.duration[i];
+}
+console.log(sum);
+
+//PLAY SONG
 const audio = new Audio();
 
 const playButton = document.querySelectorAll(".playButton");
 
 for (const button of playButton) {
   button.addEventListener("click", () => {
-    
     const song = allSongs[button.dataset.index];
     audio.src = song.src;
-    audio.play();
+    button.classList.toggle("pauseButton");
+
+    if (audio.paused) {
+      audio.play();
+    } else {
+      audio.pause();
+      console.log("pause?");
+    }
   });
 }
+
+//PAUSE SONG

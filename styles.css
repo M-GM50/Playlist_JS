@@ -32,7 +32,7 @@ header {
   align-items: center;
   font-family: "Barlow", sans-serif;
   grid-row: 1;
-  grid-column: 3;
+  grid-column: 3/7;
 }
 
 .info img {
@@ -78,6 +78,22 @@ th {
 
 .playButton {
   box-shadow: 0px 5px 10px;
+  background-image: url('./images/play.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 15px;
+  padding-top: 10px;
+}
+
+.pauseButton {
+  box-shadow: 0px 5px 10px;
+  background-image: url('./images/pause_button.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 15px;
+  padding-top: 10px;
 }
 
 .playButton:hover {
