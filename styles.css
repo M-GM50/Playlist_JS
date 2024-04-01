@@ -79,21 +79,21 @@ th {
 .playButton {
   box-shadow: 0px 5px 10px;
   background-image: url('./images/play.png');
-  background-size: contain;
+  background-size: cover;
+  width:30px;
+  height: 30px;;
   background-repeat: no-repeat;
-  width: 20px;
-  height: 15px;
-  padding-top: 10px;
+  border: none;
 }
 
 .pauseButton {
   box-shadow: 0px 5px 10px;
   background-image: url('./images/pause_button.png');
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
-  width: 20px;
-  height: 15px;
-  padding-top: 10px;
+  width: 30px;
+  height: 30px;
+  border:none;
 }
 
 .playButton:hover {

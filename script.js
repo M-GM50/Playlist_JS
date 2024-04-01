@@ -100,9 +100,8 @@ let sum = 0;
 for (let i = 0; allSongs.duration; i++) {
   sum += allSongs.duration[i];
 }
-console.log(sum);
 
-//PLAY SONG
+//PLAYS SONG
 const audio = new Audio();
 const playButton = document.querySelectorAll(".playButton");
 
@@ -114,12 +113,19 @@ for (const button of playButton) {
       audio.src = song.src;
     }
 
+    //RESETS PAUSE BUTTON INTO INITIAL STATE
+
+    for (const b of playButton) {
+      b.classList.remove("pauseButton");
+    }
+
+    //PAUSES SONG
+
     if (audio.paused) {
       audio.play();
+      button.classList.add("pauseButton");
     } else {
       audio.pause();
     }
-
-    button.classList.toggle("pauseButton");
   });
 }
