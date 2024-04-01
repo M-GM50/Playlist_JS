@@ -42,11 +42,18 @@ header {
 
 .stats {
   display: flex;
+  max-width: 250px;
+  flex-wrap: wrap;
 }
 
 .stats > p {
   margin: 0;
   padding-right: 10px;
+}
+
+.audioControls{
+  grid-row: 2;
+  grid-column: 5;
 }
 
 #side_navbar {
@@ -78,7 +85,7 @@ th {
 
 .playButton {
   box-shadow: 0px 5px 10px;
-  background-image: url('./images/play.png');
+  background-image: url('./images/buttons/play.png');
   background-size: cover;
   width:30px;
   height: 30px;;
@@ -88,7 +95,7 @@ th {
 
 .pauseButton {
   box-shadow: 0px 5px 10px;
-  background-image: url('./images/pause_button.png');
+  background-image: url('./images/buttons/pause.png');
   background-size: cover;
   background-repeat: no-repeat;
   width: 30px;

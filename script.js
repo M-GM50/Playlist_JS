@@ -71,18 +71,20 @@ const allSongs = [
   },
 ];
 
+let currentlyPlaying = document.getElementById("currentlyPlaying");
+const playAll = document.getElementById("playAll");
+
 displaySongs = document.querySelector("#displaySongs");
 let out = "";
 
 for (let i = 0; i < allSongs.length; i++) {
   let song = allSongs[i];
   out += `
-	         <tr>
-	            <td><button data-index=${i} class="playButton"></button></td>
+	         <tr data-index=${i}>
+	            <td ><button data-index=${i} class="playButton"></button></td>
 	            <td>${song.title}</td>
 	            <td>${song.artist}</td>
-	            <td>${song.duration}</td>
-	          
+	            <td>${song.duration}</td>	          
 	         </tr>
            `;
 }
@@ -104,23 +106,27 @@ for (let i = 0; allSongs.duration; i++) {
 //PLAYS SONG
 const audio = new Audio();
 const playButton = document.querySelectorAll(".playButton");
+// PLAY THE ENTIRE PLAYLIST
+
+let currentSongIndex = 0;
 
 for (const button of playButton) {
   button.addEventListener("click", () => {
-    const song = allSongs[button.dataset.index];
+    let index = button.dataset.index;
+    let song = allSongs[index];
 
     if (audio.src !== song.src) {
       audio.src = song.src;
     }
 
-    //RESETS PAUSE BUTTON INTO INITIAL STATE
+    updateRow(index);
 
+    //RESETS PAUSE BUTTON INTO INITIAL STATE
     for (const b of playButton) {
       b.classList.remove("pauseButton");
     }
 
     //PAUSES SONG
-
     if (audio.paused) {
       audio.play();
       button.classList.add("pauseButton");
@@ -128,4 +134,32 @@ for (const button of playButton) {
       audio.pause();
     }
   });
+}
+
+playAll.addEventListener("click", () => {
+  playSong(currentSongIndex);
+});
+
+function updateRow(index) {
+  let currentRow = document.querySelector(`tr[data-index="${index}"]`);
+  let rows = document.querySelectorAll("tr");
+
+  for (let tr of rows) {
+    tr.style.backgroundColor = "transparent";
+  }
+
+  currentRow.style.backgroundColor = "white";
+}
+
+function playSong(index) {
+  const song = allSongs[index];
+  audio.src = song.src;
+  audio.play();
+
+  if (currentSongIndex < allSongs.length) {
+    audio.addEventListener("ended", () => {
+      currentSongIndex++;
+      playSong(currentSongIndex);
+    });
+  }
 }
