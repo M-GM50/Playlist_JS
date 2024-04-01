@@ -78,7 +78,7 @@ for (let i = 0; i < allSongs.length; i++) {
   let song = allSongs[i];
   out += `
 	         <tr>
-	            <td data-index=${i} class="playButton"></td>
+	            <td><button data-index=${i} class="playButton"></button></td>
 	            <td>${song.title}</td>
 	            <td>${song.artist}</td>
 	            <td>${song.duration}</td>
@@ -104,22 +104,22 @@ console.log(sum);
 
 //PLAY SONG
 const audio = new Audio();
-
 const playButton = document.querySelectorAll(".playButton");
 
 for (const button of playButton) {
   button.addEventListener("click", () => {
     const song = allSongs[button.dataset.index];
-    audio.src = song.src;
-    button.classList.toggle("pauseButton");
+
+    if (audio.src !== song.src) {
+      audio.src = song.src;
+    }
 
     if (audio.paused) {
       audio.play();
     } else {
       audio.pause();
-      console.log("pause?");
     }
+
+    button.classList.toggle("pauseButton");
   });
 }
-
-//PAUSE SONG
