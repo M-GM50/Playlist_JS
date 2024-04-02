@@ -71,11 +71,27 @@ const allSongs = [
   },
 ];
 
-let currentlyPlaying = document.getElementById("currentlyPlaying");
 const playAll = document.getElementById("playAll");
+const next = document.getElementById("next");
+const previous = document.getElementById("previous");
 
 displaySongs = document.querySelector("#displaySongs");
 let out = "";
+
+function playSong(index) {
+  const song = allSongs[index];
+
+  // PLAYS NEXT SONG WHEN CURRENT SONG IS OVER
+
+  if (currentSongIndex < allSongs.length -1) {
+    audio.src = song.src;
+    audio.play();
+    audio.addEventListener("ended", () => {
+      currentSongIndex++;
+      playSong(currentSongIndex);
+    });
+  }
+}
 
 for (let i = 0; i < allSongs.length; i++) {
   let song = allSongs[i];
@@ -104,9 +120,9 @@ for (let i = 0; allSongs.duration; i++) {
 }
 
 //PLAYS SONG
+
 const audio = new Audio();
 const playButton = document.querySelectorAll(".playButton");
-// PLAY THE ENTIRE PLAYLIST
 
 let currentSongIndex = 0;
 
@@ -122,11 +138,13 @@ for (const button of playButton) {
     updateRow(index);
 
     //RESETS PAUSE BUTTON INTO INITIAL STATE
+
     for (const b of playButton) {
       b.classList.remove("pauseButton");
     }
 
     //PAUSES SONG
+
     if (audio.paused) {
       audio.play();
       button.classList.add("pauseButton");
@@ -136,30 +154,34 @@ for (const button of playButton) {
   });
 }
 
+// PLAYS THE ENTIRE PLAYLIST
+
 playAll.addEventListener("click", () => {
   playSong(currentSongIndex);
+  updateRow(currentSongIndex);
+});
+
+//SKIPS BACK AND FORWARD
+
+previous.addEventListener("click", () => {
+  playSong(currentSongIndex--);
+  updateRow(currentSongIndex);
+});
+
+next.addEventListener("click", () => {
+  playSong(currentSongIndex++);
+  updateRow(currentSongIndex);
 });
 
 function updateRow(index) {
   let currentRow = document.querySelector(`tr[data-index="${index}"]`);
   let rows = document.querySelectorAll("tr");
 
+  // HIGHLIGHTS CURRENT SONG
+
   for (let tr of rows) {
     tr.style.backgroundColor = "transparent";
   }
 
   currentRow.style.backgroundColor = "white";
-}
-
-function playSong(index) {
-  const song = allSongs[index];
-  audio.src = song.src;
-  audio.play();
-
-  if (currentSongIndex < allSongs.length) {
-    audio.addEventListener("ended", () => {
-      currentSongIndex++;
-      playSong(currentSongIndex);
-    });
-  }
 }
