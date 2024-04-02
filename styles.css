@@ -6,6 +6,13 @@ header {
   display: flex;
 }
 
+#currentlyPlaying{
+  position: relative;
+  top:120px;
+  right:600px;
+  font-family: "Jura", sans-serif;
+}
+
 #title {
   font-family: "Jura", sans-serif;
   font-weight: 300;
@@ -41,11 +48,7 @@ header {
 }
 
 .stats {
-  display: flex;
-  max-width: 250px;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
+  max-width: 230px;
 }
 
 .stats > p {
@@ -53,10 +56,7 @@ header {
   padding-right: 10px;
 }
 
-.audioControls {
-  grid-row: 2;
-  grid-column: 5;
-}
+
 
 #side_navbar {
   list-style: none;
@@ -96,6 +96,24 @@ th {
 
 .pauseAll {
   background-image: url("./images/buttons/pauseAll.png");
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: none;
+}
+
+#previous{
+  background-image: url("./images/buttons/previous.png");
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: none;
+}
+
+#next{
+  background-image: url("./images/buttons/next.png");
   background-size: cover;
   width: 20px;
   height: 20px;

@@ -25,22 +25,30 @@
         width="250"
       />
       <h1 id="title">MY PLAYLIST</h1>
+      <p id="currentlyPlaying"></p>
     </header>
     <div class="grid">
+      <section class="info">
+        <img src="https://picsum.photos/150/150" />
+        <div>
+          <p>Created by Faith</p>
+          <div class="stats">
+            <p>45, 815 likes</p>
+            <p id="songsNumber">162 songs</p>
+            <p id="playlistDuration">23h 42</p>
+          </div>
 
-    <section class="info">
-      <img src="https://picsum.photos/150/150" />
-      <div>
-        <p>Created by Faith</p>
-        <div class="stats">
-          <p>45, 815 likes</p>
-          <p id="songsNumber">162 songs</p>
-          <p id="playlistDuration">23h 42</p>
-          <img src="images/buttons/previous.png" id="previous" alt="previous song button" width="20">
-          <button class="playAll" alt="Play all button"></button>
-          <img src="./images/buttons/next.png" id="next" alt="next song button" width="20">
+          <div class="audioControls">
+            <button
+              id="previous"
+              alt="previous song button"
+              width="20"
+            ></button>
+            <button class="playAll" alt="Play all button"></button>
+            <button id="next" alt="next song button" width="20"></button>
+          </div>
         </div>
-    </section>
+      </section>
 
       <nav>
         <ul id="side_navbar">

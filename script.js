@@ -71,44 +71,47 @@ const allSongs = [
   },
 ];
 
+// CREATES TABLE FOR PLAYLIST
+const displaySongs = document.querySelector("#displaySongs");
+let out = "";
+
+for (let i = 0; i < allSongs.length; i++) {
+  let song = allSongs[i];
+  out += `
+  <tr data-index=${i}>
+    <td><button data-index=${i} class="playButton"></button></td>
+    <td>${song.title}</td>
+    <td>${song.artist}</td>
+    <td>${song.duration}</td>	          
+  </tr>
+  `;
+}
+
+displaySongs.innerHTML = out;
+
 const audio = new Audio();
+let currentSongIndex = 0;
+const displayCurrentSong = document.querySelector("#currentlyPlaying");
 const songsNumber = document.querySelector("#songsNumber");
 const playButton = document.querySelectorAll(".playButton");
 const playAll = document.querySelector(".playAll");
 const next = document.getElementById("next");
 const previous = document.getElementById("previous");
 
-displaySongs = document.querySelector("#displaySongs");
-let out = "";
-
 function playSong(index) {
   const song = allSongs[index];
 
   // PLAYS NEXT SONG WHEN CURRENT SONG IS OVER
 
-  if (currentSongIndex < allSongs.length - 1) {
+  if (index < allSongs.length - 1) {
     audio.src = song.src;
     audio.play();
     audio.addEventListener("ended", () => {
-      currentSongIndex++;
-      playSong(currentSongIndex);
+      index++;
+      playSong(index);
     });
   }
 }
-
-for (let i = 0; i < allSongs.length; i++) {
-  let song = allSongs[i];
-  out += `
-	         <tr data-index=${i}>
-	            <td ><button data-index=${i} class="playButton"></button></td>
-	            <td>${song.title}</td>
-	            <td>${song.artist}</td>
-	            <td>${song.duration}</td>	          
-	         </tr>
-           `;
-}
-
-displaySongs.innerHTML = out;
 
 // UPDATE PLAYLIST INFO
 
@@ -123,10 +126,9 @@ for (let i = 0; allSongs.duration; i++) {
 
 //PLAYS SONG
 
-let currentSongIndex = 0;
-
 for (const button of playButton) {
   button.addEventListener("click", () => {
+    console.log("hello");
     let index = button.dataset.index;
     let song = allSongs[index];
 
@@ -153,12 +155,17 @@ for (const button of playButton) {
   });
 }
 
+const updateCurrentlyPlaying = (index) => {
+  displayCurrentSong.textContent = `Currently playing: ${allSongs[index].title}`;
+};
+
 // PLAYS THE ENTIRE PLAYLIST
 
 playAll.addEventListener("click", () => {
   if (audio.paused) {
     playSong(currentSongIndex);
     updateRow(currentSongIndex);
+    updateCurrentlyPlaying(currentSongIndex);
   } else {
     audio.pause();
   }
@@ -166,17 +173,20 @@ playAll.addEventListener("click", () => {
   playAll.classList.toggle("pauseAll");
 });
 
-
 //SKIPS BACK AND FORWARD
 
 previous.addEventListener("click", () => {
-  playSong(currentSongIndex--);
+  currentSongIndex--;
+  playSong(currentSongIndex);
   updateRow(currentSongIndex);
+  updateCurrentlyPlaying(currentSongIndex);
 });
 
 next.addEventListener("click", () => {
-  playSong(currentSongIndex++);
+  currentSongIndex++;
+  playSong(currentSongIndex);
   updateRow(currentSongIndex);
+  updateCurrentlyPlaying(currentSongIndex);
 });
 
 function updateRow(index) {
