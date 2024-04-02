@@ -44,6 +44,8 @@ header {
   display: flex;
   max-width: 250px;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .stats > p {
@@ -51,7 +53,7 @@ header {
   padding-right: 10px;
 }
 
-.audioControls{
+.audioControls {
   grid-row: 2;
   grid-column: 5;
 }
@@ -83,24 +85,42 @@ th {
   padding: 5px;
 }
 
+.playAll {
+  background-image: url("./images/buttons/playAll.png");
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: none;
+}
+
+.pauseAll {
+  background-image: url("./images/buttons/pauseAll.png");
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: none;
+}
+
 .playButton {
   box-shadow: 0px 5px 10px;
-  background-image: url('./images/buttons/play.png');
+  background-image: url("./images/buttons/play.png");
   background-size: cover;
-  width:30px;
-  height: 30px;;
+  width: 30px;
+  height: 30px;
   background-repeat: no-repeat;
   border: none;
 }
 
 .pauseButton {
   box-shadow: 0px 5px 10px;
-  background-image: url('./images/buttons/pause.png');
+  background-image: url("./images/buttons/pause.png");
   background-size: cover;
   background-repeat: no-repeat;
   width: 30px;
   height: 30px;
-  border:none;
+  border: none;
 }
 
 .playButton:hover {

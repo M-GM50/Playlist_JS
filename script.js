@@ -71,7 +71,10 @@ const allSongs = [
   },
 ];
 
-const playAll = document.getElementById("playAll");
+const audio = new Audio();
+const songsNumber = document.querySelector("#songsNumber");
+const playButton = document.querySelectorAll(".playButton");
+const playAll = document.querySelector(".playAll");
 const next = document.getElementById("next");
 const previous = document.getElementById("previous");
 
@@ -83,7 +86,7 @@ function playSong(index) {
 
   // PLAYS NEXT SONG WHEN CURRENT SONG IS OVER
 
-  if (currentSongIndex < allSongs.length -1) {
+  if (currentSongIndex < allSongs.length - 1) {
     audio.src = song.src;
     audio.play();
     audio.addEventListener("ended", () => {
@@ -109,7 +112,6 @@ displaySongs.innerHTML = out;
 
 // UPDATE PLAYLIST INFO
 
-const songsNumber = document.querySelector("#songsNumber");
 songsNumber.innerText = `${allSongs.length} songs`;
 
 //SUM DURATION
@@ -120,9 +122,6 @@ for (let i = 0; allSongs.duration; i++) {
 }
 
 //PLAYS SONG
-
-const audio = new Audio();
-const playButton = document.querySelectorAll(".playButton");
 
 let currentSongIndex = 0;
 
@@ -157,9 +156,16 @@ for (const button of playButton) {
 // PLAYS THE ENTIRE PLAYLIST
 
 playAll.addEventListener("click", () => {
-  playSong(currentSongIndex);
-  updateRow(currentSongIndex);
+  if (audio.paused) {
+    playSong(currentSongIndex);
+    updateRow(currentSongIndex);
+  } else {
+    audio.pause();
+  }
+
+  playAll.classList.toggle("pauseAll");
 });
+
 
 //SKIPS BACK AND FORWARD
 
