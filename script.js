@@ -155,8 +155,10 @@ for (const button of playButton) {
   });
 }
 
+// SHOWS CURRENTLY PLAYING SONG
+
 const updateCurrentlyPlaying = (index) => {
-  displayCurrentSong.textContent = `Currently playing: ${allSongs[index].title}`;
+  displayCurrentSong.innerHTML = `<img src="./images/currently_playing.png" width="20">${allSongs[index].title} <p style="color:black;">${allSongs[index].artist}<p>`;
 };
 
 // PLAYS THE ENTIRE PLAYLIST

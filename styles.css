@@ -2,24 +2,40 @@ body {
   background-image: url(./images/bg.png);
 }
 
-header {
-  display: flex;
-}
-
-#currentlyPlaying{
-  position: relative;
-  top:120px;
-  right:600px;
-  font-family: "Jura", sans-serif;
+#title-container {
+  position: absolute;
+  bottom: 80vh;
+  left: 400px;
+  color: white;
 }
 
 #title {
   font-family: "Jura", sans-serif;
   font-weight: 300;
   font-size: 4.5rem;
-  margin: 0 auto;
-  padding-top: 40px;
-  color: white;
+  margin: 0;
+}
+
+#currentlyPlaying {
+  position: absolute;
+  font-family: "Jura", sans-serif;
+  margin: 0;
+  left:8%;
+  min-width: 600px;
+  display: flex;
+  align-items: center;
+}
+
+#currentlyPlaying p{
+  position: absolute;
+  top:40%;
+}
+
+#currentlyPlaying img{
+  padding-right:2%;
+  position: absolute;
+  top: 50%;
+  left:-5%
 }
 
 .grid {
@@ -31,58 +47,39 @@ header {
 
 .grid nav {
   grid-row: 1;
-  padding-top: 10%;
+  padding-top: 1vh;
 }
 
-.info {
+.playlist_info {
   display: flex;
   align-items: center;
   font-family: "Barlow", sans-serif;
   grid-row: 1;
-  grid-column: 3/7;
+  grid-column: 3/10;
 }
 
-.info img {
+.playlist_info img {
   border-radius: 50%;
-  padding: 20px;
+  padding: 2%;
+}
+
+
+.playlist_info p {
+  margin: 0;
+  padding-left: 1vw;
+  padding-top: 2vh;
 }
 
 .stats {
-  max-width: 230px;
-}
-
-.stats > p {
-  margin: 0;
-  padding-right: 10px;
-}
-
-
-
-#side_navbar {
-  list-style: none;
-  line-height: 3rem;
-  margin-top: 2rem;
-  font-family: "Barlow", sans-serif;
-  font-size: 1.5rem;
-}
-
-#side_navbar li {
   display: flex;
-  align-items: center;
-  gap: 5px;
+  margin: 0;
 }
 
-table {
-  width: 100%;
-  grid-column: 4/9;
-  grid-row: 3;
-  padding-left: 20px;
-  padding-top: 20px;
-}
-
-td,
-th {
-  padding: 5px;
+.audio_controls{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 3vh;
+  padding-left: 1vw;
 }
 
 .playAll {
@@ -103,7 +100,7 @@ th {
   border: none;
 }
 
-#previous{
+#previous {
   background-image: url("./images/buttons/previous.png");
   background-size: cover;
   width: 20px;
@@ -112,13 +109,40 @@ th {
   border: none;
 }
 
-#next{
+#next {
   background-image: url("./images/buttons/next.png");
   background-size: cover;
   width: 20px;
   height: 20px;
   background-color: transparent;
   border: none;
+}
+
+#side_navbar {
+  list-style: none;
+  line-height: 3.5rem;
+  margin-top: 4rem;
+  font-family: "Barlow", sans-serif;
+  font-size: 1.5rem;
+}
+
+#side_navbar li {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+}
+
+table {
+  width: 100%;
+  grid-column: 4/9;
+  grid-row: 3;
+  padding-left: 2vw;
+  padding-top: 2vh;
+}
+
+td,
+th {
+  padding: 1%;
 }
 
 .playButton {

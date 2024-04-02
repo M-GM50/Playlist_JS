@@ -17,20 +17,25 @@
     <title>Sparkling Panda</title>
   </head>
   <body>
+
     <header>
       <img
-        id="logoButton"
         src="./images/logo.png"
-        alt="Panda logo"
+        alt="Sparklink Panda logo"
         width="250"
       />
+      <section id="title-container">
       <h1 id="title">MY PLAYLIST</h1>
-      <p id="currentlyPlaying"></p>
+      <h6 id="currentlyPlaying"></h6>
+      </section>
     </header>
+
+    <main>
+      
     <div class="grid">
-      <section class="info">
+      <section class="playlist_info">
         <img src="https://picsum.photos/150/150" />
-        <div>
+        <div class="playlist_info_container">
           <p>Created by Faith</p>
           <div class="stats">
             <p>45, 815 likes</p>
@@ -38,7 +43,7 @@
             <p id="playlistDuration">23h 42</p>
           </div>
 
-          <div class="audioControls">
+          <div class="audio_controls">
             <button
               id="previous"
               alt="previous song button"
@@ -89,6 +94,7 @@
         <tbody id="displaySongs"></tbody>
       </table>
     </div>
+    </main>
 
     <script src="./script.js"></script>
   </body>
