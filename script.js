@@ -96,7 +96,7 @@ const songsNumber = document.querySelector("#songsNumber");
 const playButton = document.querySelectorAll(".playButton");
 const playAll = document.querySelector(".playAll");
 const next = document.getElementById("next");
-const previous = document.getElementById("previous");
+const shuffle = document.getElementById("shuffle");
 
 function playSong(index) {
   const song = allSongs[index];
@@ -203,3 +203,14 @@ function updateRow(index) {
 
   currentRow.style.backgroundColor = "white";
 }
+
+// SHUFFLE
+const shufflebtn = () => {
+  currentSongIndex = Math.floor(Math.random() * allSongs.length);
+  console.log(currentSongIndex);
+  playSong(currentSongIndex);
+  updateRow(currentSongIndex);
+  updateCurrentlyPlaying(currentSongIndex);
+};
+
+ shuffle.addEventListener("click", shufflebtn);

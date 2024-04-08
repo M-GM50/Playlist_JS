@@ -5,7 +5,7 @@ body {
 #title-container {
   position: absolute;
   bottom: 80vh;
-  left: 400px;
+  left: 600px;
   color: white;
 }
 
@@ -20,22 +20,22 @@ body {
   position: absolute;
   font-family: "Jura", sans-serif;
   margin: 0;
-  left:8%;
+  left: 8%;
   min-width: 600px;
   display: flex;
   align-items: center;
 }
 
-#currentlyPlaying p{
+#currentlyPlaying p {
   position: absolute;
-  top:40%;
+  top: 40%;
 }
 
-#currentlyPlaying img{
-  padding-right:2%;
+#currentlyPlaying img {
+  padding-right: 2%;
   position: absolute;
   top: 50%;
-  left:-5%
+  left: -5%;
 }
 
 .grid {
@@ -63,7 +63,6 @@ body {
   padding: 2%;
 }
 
-
 .playlist_info p {
   margin: 0;
   padding-left: 1vw;
@@ -75,11 +74,20 @@ body {
   margin: 0;
 }
 
-.audio_controls{
+.audio_controls {
   display: flex;
   justify-content: space-between;
   padding-top: 3vh;
   padding-left: 1vw;
+}
+
+#shuffle {
+  background-image: url("./images/buttons/shuffle.png");
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: none;
 }
 
 .playAll {
